@@ -2,18 +2,18 @@
 
 // To remove conflicts with recent v8 code std::numeric_limits<int>::max()
 #ifndef NOMINMAX
-#define NOMINMAX 
+#define NOMINMAX
 #endif
 
 #include <SDKDDKVer.h>
 
 // Windows Header Files:
-#define WIN32_LEAN_AND_MEAN                     // Exclude rarely-used stuff from Windows headers
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS      // some CString constructors will be explicit
+#define WIN32_LEAN_AND_MEAN                // Exclude rarely-used stuff from Windows headers
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS // some CString constructors will be explicit
 #include <windows.h>
 
 // ATL headers
-//#define USE_ATL
+// #define USE_ATL
 #ifdef USE_ATL
 #include <atlbase.h>
 #include <atlstr.h>
@@ -42,4 +42,4 @@ using namespace v8;
 using namespace node;
 
 // Application defines
-//#define TEST_ADVISE
+// #define TEST_ADVISE

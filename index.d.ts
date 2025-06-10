@@ -1,6 +1,6 @@
 export class Object {
   constructor(id: string, options?: ActiveXObjectOptions);
-  
+
   // Define properties typically found on COM objects
   __id?: string;
   __value?: any;
@@ -23,6 +23,7 @@ export class Variant {
   valueOf(): any;
 }
 
+// prettier-ignore
 export type VariantType =
   | 'int' | 'uint' | 'int8' | 'char' | 'uint8' | 'uchar' | 'byte'
   | 'int16' | 'short' | 'uint16' | 'ushort'
@@ -41,10 +42,24 @@ declare global {
   function ActiveXObject(id: string, options?: ActiveXObjectOptions): any;
   function ActiveXObject(obj: Record<string, any>): any;
 
+  function AddLog(msg: string, level?: string): void;
+  function AddStep(step: {
+    step_id?: number;
+    score: number;
+    max_score?: number;
+    info?: string;
+    [key: string]: any;
+  }): void;
+  function SetResult(info: {
+    score: number;
+    total: number;
+    [key: string]: any;
+  }): void;
+
   interface ActiveXObjectOptions {
     /** Allow activating existing object instance. */
     activate?: boolean;
-    
+
     /** Allow using the name of the file in the ROT. **/
     getobject?: boolean;
 
