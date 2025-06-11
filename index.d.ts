@@ -42,20 +42,6 @@ declare global {
   function ActiveXObject(id: string, options?: ActiveXObjectOptions): any;
   function ActiveXObject(obj: Record<string, any>): any;
 
-  function AddLog(msg: string, level?: string): void;
-  function AddStep(step: {
-    step_id?: number;
-    score: number;
-    max_score?: number;
-    info?: string;
-    [key: string]: any;
-  }): void;
-  function SetResult(info: {
-    score: number;
-    total: number;
-    [key: string]: any;
-  }): void;
-
   interface ActiveXObjectOptions {
     /** Allow activating existing object instance. */
     activate?: boolean;

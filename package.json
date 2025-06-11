@@ -1,6 +1,6 @@
 {
-  "name": "@jyd519/winax",
-  "version": "1.0.4",
+  "name": "winax",
+  "version": "1.0.8",
   "description": "Windows COM bindings",
   "homepage": "https://github.com/durs/node-activex",
   "keywords": [
@@ -25,8 +25,8 @@
     "email": "yuri.dursin@gmail.com"
   },
   "binary": {
-    "module_name": "node_activex",
-    "module_path": "./build/{configuration}/{node_abi}-{platform}-{arch}/",
+    "module_name": "winax",
+    "module_path": "./lib/{configuration}/{node_abi}-{platform}-{arch}/",
     "remote_path": "./softwares/node/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
     "host": "https://ata-yuekao-update.oss-cn-beijing.aliyuncs.com"
@@ -34,6 +34,7 @@
   "files": [
     "*.js",
     "*.d.ts",
+    "lib/**/*.node",
     "package.json",
     "package-lock.json",
     "*.gyp",
@@ -60,8 +61,11 @@
   "engines": {
     "node": ">= 10.0.0"
   },
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^2.0.0"
+  },
   "scripts": {
-    "xinstall": "node-pre-gyp install --fallback-to-build",
+    "install": "node-pre-gyp install --fallback-to-build",
     "test": "mocha test"
   },
   "license": "MIT",

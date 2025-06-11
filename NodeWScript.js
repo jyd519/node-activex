@@ -285,21 +285,24 @@ WScript.__InitArgs();
 
 global.WScript = WScript;
 
-global.AddLog = function (msg, level) {
-  const obj = {
-    msg,
-    level: level || "info",
-  };
-  WScript.StdOut.Write("log: " + JSON.stringify(obj));
-};
+const scorer = {
+  log: function (msg, level) {
+    const obj = { type: "log", msg, level: level || "info" };
+    console.log(JSON.stringify(obj));
+  },
+  addStep: function (stepInfo) {
+    console.log(JSON.stringify({type: "step", ...stepInfo}));
+  },
+  setResult: function (resultInfo) {
+    console.log(JSON.stringify({type: "result", ...resultInfo}));
+  },
+  fail: function (msg) {
+    console.error(msg);
+    process.exit(1);
+  },
+}
 
-global.AddStep = function (stepInfo) {
-  WScript.StdOut.Write("step: " + JSON.stringify(stepInfo));
-};
-
-global.SetResult = function (resultInfo) {
-  WScript.StdOut.Write("result: " + JSON.stringify(resultInfo));
-};
+global.scorer = scorer;
 
 function MessageLoop() {
   g_winax.peekAndDispatchMessages(); // allows ActiveX event to be dispatched
