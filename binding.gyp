@@ -2,6 +2,7 @@
   'targets': [
     {
       'target_name': 'node_activex',
+      'product_dir': '<(module_path)',
       'conditions': [
         ['OS=="win"', {
           'sources': [

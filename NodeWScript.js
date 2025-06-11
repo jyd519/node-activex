@@ -301,13 +301,6 @@ global.SetResult = function (resultInfo) {
   WScript.StdOut.Write("result: " + JSON.stringify(resultInfo));
 };
 
-// 输出版本信息
-WScript.Echo("ver: json 1.0");
-
-if (WScript.__ShowLogo) {
-  WScript.Echo(WScript.Name + " " + WScript.BuildVersion);
-}
-
 function MessageLoop() {
   g_winax.peekAndDispatchMessages(); // allows ActiveX event to be dispatched
 }

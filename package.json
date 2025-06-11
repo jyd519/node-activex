@@ -1,6 +1,6 @@
 {
-  "name": "winax",
-  "version": "3.6.1",
+  "name": "@jyd519/winax",
+  "version": "1.0.3",
   "description": "Windows COM bindings",
   "homepage": "https://github.com/durs/node-activex",
   "keywords": [
@@ -24,8 +24,28 @@
     "url": "https://github.com/durs",
     "email": "yuri.dursin@gmail.com"
   },
+  "binary": {
+    "module_name": "node_activex",
+    "module_path": "./build/{configuration}/{node_abi}-{platform}-{arch}/",
+    "remote_path": "./softwares/node/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://ata-yuekao-update.oss-cn-beijing.aliyuncs.com"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "package.json",
+    "package-lock.json",
+    "*.gyp",
+    "ajsp.js",
+    "LICENSE",
+    "README.md",
+    "NodeWScript.js",
+    "include/**",
+    "src/**"
+  ],
   "bin": {
-    "nodewscript": "./NodeWScript.js"
+    "nodewscript": "NodeWScript.js"
   },
   "contributors": [
     "Yuri Dursin <yuri.dursin@gmail.com>",
@@ -37,12 +57,11 @@
     "type": "git",
     "url": "git://github.com/durs/node-activex.git"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "engines": {
     "node": ">= 10.0.0"
   },
   "scripts": {
+    "xinstall": "node-pre-gyp install --fallback-to-build",
     "test": "mocha test"
   },
   "license": "MIT",
