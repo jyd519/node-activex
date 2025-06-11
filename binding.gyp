@@ -1,7 +1,7 @@
 {
   'targets': [
     {
-      'target_name': 'node_activex',
+      'target_name': '<(module_name)',
       'product_dir': '<(module_path)',
       'conditions': [
         ['OS=="win"', {
